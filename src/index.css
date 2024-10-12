@@ -66,7 +66,7 @@ header a:hover {
 /*** HOME PAGE ***/
 .home-container {
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-		url("./assets/images/home-hero.png") no-repeat center center;
+		url("../public/home-hero.png") no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -166,6 +166,10 @@ header a:hover {
 .van-tile img {
 	max-width: 100%;
 	border-radius: 5px;
+}
+
+.van-tile .van-name {
+	font-weight: 700;
 }
 
 .van-list-container button {
