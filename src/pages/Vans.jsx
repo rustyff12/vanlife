@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-/**
- * Challenge: Wrap the contents of the "van-tile" div in a
- * Link that sends the user to `/vans/${van-id-here}`.
- */
+
 
 export default function Vans() {
 	const [vans, setVans] = useState([]);
