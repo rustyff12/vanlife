@@ -1,7 +1,7 @@
 export default function Income() {
 	return (
 		<>
-			<h1>Here will be the income page</h1>
+			<h1>Income will go here</h1>
 		</>
 	);
 }
