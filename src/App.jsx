@@ -1,18 +1,19 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 import Vans from "./pages/Vans/Vans";
 import VanDetail from "./pages/Vans/VanDetail";
-import Layout from "./components/Layout";
-import HostLayout from "./components/HostLayout";
 import Dashboard from "./pages/Host/Dashboard";
+import HostVanInfo from "./pages/Host/HostVanInfo";
 import Income from "./pages/Host/Income";
 import HostVans from "./pages/Host/HostVans";
-import HostVanDetail from "./pages/Host/HostVanDetail";
 import Reviews from "./pages/Host/Reviews";
+import HostVanDetail from "./pages/Host/HostVanDetail";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import HostVanPricing from "./pages/Host/HostVanPricing";
-import HostVanInfo from "./pages/Host/HostVanInfo";
+import Layout from "./components/Layout";
+import HostLayout from "./components/HostLayout";
 
 export default function App() {
 	return (
@@ -35,6 +36,7 @@ export default function App() {
 							<Route path="photos" element={<HostVanPhotos />} />
 						</Route>
 					</Route>
+					<Route path="*" element={<NotFound />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
