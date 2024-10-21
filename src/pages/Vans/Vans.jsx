@@ -1,30 +1,15 @@
-import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import { getVans } from "../../api";
+
+export async function loader() {
+	return await getVans();
+}
 
 export default function Vans() {
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [vans, setVans] = useState([]);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
+	const vans = useLoaderData();
 
 	const typeFilter = searchParams.get("type");
-
-	useEffect(() => {
-		async function loadVans() {
-			setLoading(true);
-			try {
-				const data = await getVans();
-				setVans(data);
-			} catch (err) {
-				setError(err);
-			} finally {
-				setLoading(false);
-			}
-		}
-
-		loadVans();
-	}, []);
 
 	const displayedVans = typeFilter ? vans.filter((van) => van.type === typeFilter) : vans;
 
@@ -60,14 +45,6 @@ export default function Vans() {
 		});
 	}
 
-	if (loading) {
-		return <h1>Loading...</h1>;
-	}
-
-	if (error) {
-		return <h1>There was an error: {error.message}</h1>;
-	}
-
 	return (
 		<div className="van-list-container">
 			<h1>Explore our van options</h1>
@@ -89,7 +66,7 @@ export default function Vans() {
 				</button>
 				{typeFilter && (
 					<button
-						onClick={() => handleFilterChange("type", "null")}
+						onClick={() => handleFilterChange("type", null)}
 						className="van-type clear-filters">
 						Clear filter
 					</button>
