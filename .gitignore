@@ -27,5 +27,5 @@ dist-ssr
 # wireframes
 Wireframes
 
-# test server
-# server.js
+# moving App.jsx to main.jsx
+/src/App.jsx

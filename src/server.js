@@ -1,4 +1,4 @@
-import { createServer, Model } from "miragejs";
+import { createServer, Model, Response } from "miragejs";
 
 createServer({
 	models: {
@@ -31,7 +31,7 @@ createServer({
 			name: "Reliable Red",
 			price: 100,
 			description:
-				"Reliable Red is a van that was made for traveling. The inside is comfortable and cozy, with plenty of space to stretch out in. There's a small kitchen, so you can cook if you need to. You'll feel like home as soon as you step out of it.",
+				"Reliable Red is a van that was made for travelling. The inside is comfortable and cozy, with plenty of space to stretch out in. There's a small kitchen, so you can cook if you need to. You'll feel like home as soon as you step out of it.",
 			imageUrl: "/reliable-red.png",
 			type: "luxury",
 			hostId: "456",
@@ -71,11 +71,10 @@ createServer({
 	routes() {
 		this.namespace = "api";
 		this.logging = false;
-		this.timing = 1000;
+		// this.timing = 2000
 
 		this.get("/vans", (schema, request) => {
-			// For simulating client side server error
-			// return new Response(400, {}, { error: "Error fetching data" });
+			// return new Response(400, {}, {error: "Error fetching data"})
 			return schema.vans.all();
 		});
 
