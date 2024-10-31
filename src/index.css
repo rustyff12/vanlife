@@ -57,6 +57,20 @@ header a:hover {
 	text-decoration: underline;
 }
 
+header .login-icon {
+	height: 18px;
+	width: 18px;
+}
+
+header .login-link {
+	display: inline-flex;
+	align-items: center;
+}
+
+nav {
+	display: flex;
+}
+
 main {
 	margin-bottom: 84px;
 }
@@ -525,4 +539,13 @@ i[class*="van-type-"] {
 
 .login-form > button:hover {
 	background-color: #161616;
+}
+
+.login-form > button:disabled {
+	background-color: #aaaaaa;
+	cursor: not-allowed;
+}
+
+.red {
+	color: #cc0000;
 }

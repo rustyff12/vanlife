@@ -1,6 +1,8 @@
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../api";
-export function loader({ params }) {
+import { requireAuth } from "../../utils";
+export async function loader({ params, request }) {
+	await requireAuth(request);
 	return getHostVans(params.id);
 }
 
@@ -23,21 +25,34 @@ export default function HostVanDetail() {
 				<div className="host-van-detail">
 					<img src={currentVan.imageUrl} />
 					<div className="host-van-detail-info-text">
-						<i className={`van-type van-type-${currentVan.type}`}>{currentVan.type}</i>
+						<i className={`van-type van-type-${currentVan.type}`}>
+							{currentVan.type}
+						</i>
 						<h3>{currentVan.name}</h3>
 						<h4>${currentVan.price}/day</h4>
 					</div>
 				</div>
 				<nav className="host-van-detail-nav">
-					<NavLink to="." end style={({ isActive }) => (isActive ? activeStyles : null)}>
+					<NavLink
+						to="."
+						end
+						style={({ isActive }) =>
+							isActive ? activeStyles : null
+						}>
 						Details
 					</NavLink>
 					<NavLink
 						to="pricing"
-						style={({ isActive }) => (isActive ? activeStyles : null)}>
+						style={({ isActive }) =>
+							isActive ? activeStyles : null
+						}>
 						Pricing
 					</NavLink>
-					<NavLink to="photos" style={({ isActive }) => (isActive ? activeStyles : null)}>
+					<NavLink
+						to="photos"
+						style={({ isActive }) =>
+							isActive ? activeStyles : null
+						}>
 						Photos
 					</NavLink>
 				</nav>
