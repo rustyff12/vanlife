@@ -3,6 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 import "./index.css";
-import "./server";
-
+// import { makeServer } from "./server";
+// makeServer();
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
